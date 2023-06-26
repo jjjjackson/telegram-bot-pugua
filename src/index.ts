@@ -1,10 +1,12 @@
 import { Telegraf } from "telegraf";
 import { message } from "telegraf/filters";
+import * as express from "express";
+import { Request, Response } from "express";
 
 import { callOpenAI, ChatRole } from "./lib/chatgpt";
 import { ChatMemory } from "./storage";
 import { Config } from "./config";
-import { insertTextToFormat, MessageType } from "./messageTemplate";
+import { MessageType } from "./messageTemplate";
 import { BotCommand } from "telegraf/typings/core/types/typegram";
 import * as yiJingHandler from "./handlers/yiJingHandler";
 
@@ -19,8 +21,23 @@ const commandList: BotCommand[] = [
   },
 ];
 
+async function server() {
+  const app = express();
+  const port = 3000;
+
+  app.get("/health_check", (req: Request, res: Response) => {
+    res.send("Hello, World!");
+  });
+
+  app.listen(port, () => {
+    console.log(`Express server listening on port ${port}`);
+  });
+}
+
 async function main() {
   try {
+    await server();
+
     const config = Config.Instance;
     const bot = new Telegraf(config.botToken);
     const chatStorage = ChatMemory.Instance;
