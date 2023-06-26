@@ -47,7 +47,7 @@ async function main() {
     bot.command("help", async (ctx) => {
       await ctx.telegram.sendMessage(
         ctx.message.chat.id,
-        "可以使用的功能\n\n・輸入訊息直接開始\n・/clear\t清除訊息\n・/help\t顯示幫助\n・/pugua\t開始易經模式\n・/guide\t開始導遊模式"
+        "可以使用的功能：\n\n・輸入訊息直接開始占卜\n・/pugua\t開始易經模式\n"
       );
     });
 
