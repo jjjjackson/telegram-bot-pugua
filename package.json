@@ -1,0 +1,32 @@
+{
+  "name": "telegram-bot-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "jest",
+    "dev": "ts-node src/index.ts",
+    "build": "tsc",
+    "start-prod-server": "source .env && pm2 start dist/index.js --name=\"api\""
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "cheerio": "^1.0.0-rc.12",
+    "openai": "^3.2.1",
+    "telegraf": "^4.12.2",
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.1",
+    "@types/jquery": "^3.5.16",
+    "@types/node": "^20.2.4",
+    "@typescript-eslint/eslint-plugin": "^5.59.9",
+    "@typescript-eslint/parser": "^5.59.9",
+    "babel-eslint": "^10.1.0",
+    "dotenv": "^16.1.4",
+    "eslint": "^8.42.0",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.1.3"
+  }
+}
